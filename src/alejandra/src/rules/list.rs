@@ -73,10 +73,12 @@ pub(crate) fn rule(
                 steps.push_back(crate::builder::Step::Pad);
                 steps.push_back(crate::builder::Step::FormatWider(child));
             } else {
-                if item_index > 1 {
+                steps.push_back(crate::builder::Step::Whitespace);
+                steps.push_back(crate::builder::Step::Format(child));
+
+                if item_index == items_count {
                     steps.push_back(crate::builder::Step::Whitespace);
                 }
-                steps.push_back(crate::builder::Step::Format(child));
             }
 
             children.move_next();

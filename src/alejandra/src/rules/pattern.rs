@@ -71,7 +71,7 @@ pub(crate) fn rule(
         if vertical {
             steps.push_back(crate::builder::Step::NewLine);
             steps.push_back(crate::builder::Step::Pad);
-        } else if index > 0 {
+        } else {
             steps.push_back(crate::builder::Step::Whitespace);
         }
 
@@ -132,9 +132,13 @@ pub(crate) fn rule(
     // }
     if vertical {
         steps.push_back(crate::builder::Step::Dedent);
-        if arguments_count > 0 || has_comments_before_curly_b_close {
+    }
+    if arguments_count > 0 || has_comments_before_curly_b_close {
+        if vertical {
             steps.push_back(crate::builder::Step::NewLine);
             steps.push_back(crate::builder::Step::Pad);
+        } else {
+            steps.push_back(crate::builder::Step::Whitespace);
         }
     }
     steps.push_back(crate::builder::Step::Token(

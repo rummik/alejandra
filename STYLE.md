@@ -16,7 +16,7 @@ for regularity and ease of modification.
 ✅ Good:
 
 ```nix
-{mkDerivation, ...} @ attrs:
+{ mkDerivation, ... } @ attrs:
   mkDerivation # ...
 ```
 
@@ -33,7 +33,7 @@ for regularity and ease of modification.
 ✅ Good:
 
 ```nix
-{mkDerivation, ...} @ attrs:
+{ mkDerivation, ... } @ attrs:
 mkDerivation # ...
 ```
 
